@@ -1,0 +1,20 @@
+<footer class="bg-1 ph2 ph5-ns pv5">
+    <div class="mv8">
+
+        <div class="f6 f5-ns center tc white pt5 fw3">
+            &copy;<%- new Date().getFullYear() %>, <a href="<%- config.url %>"><%- config.title %></a>
+        </div>
+        <div class="tc mt3">
+            <% theme.menu_footer.forEach(function(page) {%>
+                <a href="<%- page.url %>" class="f6 dib ph2 link white dim" title="<%- page.title %>" ><%- page.title %></a>
+            <% }) %>
+        </div>
+        <div class="tc mt3">
+            <% theme.social_platforms.forEach(function(platform) {%>
+                <a class="link near-black hover-silver dib h2 w2 mr3" href="<%= platform.url %>" title="<%= platform.title %>" target="_blank" rel="noopener">
+                    <%- platform.svg %>
+                </a>
+            <% }) %>
+        </div>
+    </div>
+</footer>

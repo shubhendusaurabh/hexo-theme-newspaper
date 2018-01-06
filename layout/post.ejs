@@ -1,0 +1,52 @@
+<!-- Banner -->
+<%- partial('_partial/banner.ejs', {
+    mainText: page.title || theme.default_post_title || __('default_post_title'),
+    pubDate: page.date,
+    banner: page.cover || '',
+    secondaryText: ''
+}) %>
+
+<!-- Content -->
+<section class="w-100 ph2 ph4-m ph5-l mv2">
+    <div class="w-80 f4-l f5 center black-70 content">
+        <div class="fl w-100 left fw3 lh-copy post-content">
+            <!-- Tags Vertical -->
+            <% if (page.tags && page.tags.length) {
+                    var tags = [];
+                    page.tags.forEach(function(tag) {
+                        tags.push('<a class="fw3 ph1 br1 bg-light-gray black-90 dim" href="' +  config.root + tag.path + '">#' + tag.name + '</a>');
+                    });
+                } %>
+
+                <nav role="navigation" class="toc-container">
+                    <h5>On this Page</h5>
+                    <%- toc(page.content, {list_number: false, max_depth: 3}) %>
+                </nav>
+                <!-- Main Post Content -->
+                <article>
+                    <%- page.content %>
+                </article>
+
+                <%- partial('_partial/review', {item: page}) %>
+                <div class="tc">
+                    <%- partial('_partial/widget-ads') %>
+                </div>
+                <!-- Tags Bottom -->
+                <% if (page.tags && page.tags.length) { %>
+                    <div class="tags-container-bottom">
+                        <%- tags.join(' ') %>
+                    </div>
+                <% } %>
+                <%- partial('_partial/widget-about', {item: page}) %>
+                <!-- Comments -->
+                <%- partial('_partial/comments.ejs') %>
+        </div>
+    </div>
+    <%- partial('_partial/widget-share', {item: page}) %>
+    <%- partial('_partial/widget-recent-posts') %>
+    <p class="tc gray">
+        <small>Onebagger.com is a participant in the Amazon Services LLC Associates Program, an affiliate advertising
+            program designed to provide a means for sites to earn advertising fees by advertising and linking
+            to Amazon.com, Amazon.co.uk or Amazon.ca.</small>
+    </p>
+</section>

@@ -1,0 +1,10 @@
+<article class="center ba mv4" itemprop="author" itemscope itemtype="https://schema.org/Person">
+    <meta itemprop="name" content="<%= theme.authors[page.author].name %>">
+    <h4 class="f4 bg-near-black white mv0 pv2 ph3">Written By <%= theme.authors[page.author].name %></h4>
+    <div class="flex pa3 bt">
+        <img src="<%- theme.authors[page.author].avatar || theme.about_widget_avatar_url %>" class="h3 w3 dib br4" title="<%- theme.authors[page.author].name %>">
+        <p class="f6 f5-ns dib lh-copy mv0 ph3">
+            <%= theme.authors[page.author].about %>
+        </p>
+    </div>
+</article>
