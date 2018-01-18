@@ -1,8 +1,8 @@
-# Welcome to Anodyne
+# Welcome to Newpaper
 
-[![Screenshot](http://www.codeblocq.com/img/hexo-theme-thumbnail/hexo-theme-anodyne-screenshot.jpg)](http://www.codeblocq.com/assets/projects/hexo-theme-anodyne/)
+[![Screenshot](http://www.codeblocq.com/img/hexo-theme-thumbnail/hexo-theme-newpaper-screenshot.jpg)](http://www.codeblocq.com/assets/projects/hexo-theme-newpaper/)
 
-[Live Demo Here](http://www.codeblocq.com/assets/projects/hexo-theme-anodyne/)
+[Live Demo Here](http://www.codeblocq.com/assets/projects/hexo-theme-newpaper/)
 
 <!-- more -->
 
@@ -23,7 +23,6 @@
 - Stylus CSS preprocessor
 - ejs HTML templates
 
-Note: No Image Gallery. Useless and too heavyweight. Feel free to develop one and send me a PR if you feel like this is a must.
 
 ## External libraries used
 
@@ -37,10 +36,10 @@ Note: No Image Gallery. Useless and too heavyweight. Feel free to develop one an
 Install the theme by using:
 
 ```
-$ git clone https://github.com/klugjo/hexo-theme-anodyne themes/anodyne
+$ git clone https://github.com/klugjo/hexo-theme-newpaper themes/newpaper
 ```
 
-Then update your blog's main `_config.yml` to set the theme to `anodyne`:
+Then update your blog's main `_config.yml` to set the theme to `newpaper`:
 
 i.e:
 
@@ -48,7 +47,7 @@ i.e:
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: anodyne
+theme: newpaper
 ```
 
 ## Post Configuration
@@ -62,8 +61,8 @@ On top of that, you can specify a custom font-Awesome icon in the front matter:
 Example:
 
 ``` yaml
-title: Welcome to Anodyne
-tags: ["ThisIsATag", "Intro", "Welcome", "Anodyne"]
+title: Welcome to newpaper
+tags: ["ThisIsATag", "Intro", "Welcome", "newpaper"]
 categories: ["Configuration", "Hexo"]
 icon: fa-handshake-o
 ---
@@ -71,7 +70,7 @@ icon: fa-handshake-o
 
 ## Theme Configuration
 
-The theme's global configuration is done in `/themes/hexo-theme-anodyne/_config.yml`.
+The theme's global configuration is done in `/themes/hexo-theme-newpaper/_config.yml`.
 
 ### Menu
 
@@ -95,7 +94,7 @@ It should be an image or svg
 
 ``` yaml
 # Logo
-logo_image_source: /assets/anodyne.svg
+logo_image_source: /assets/newpaper.svg
 ```
 
 ### Footer About Section Text
@@ -129,7 +128,7 @@ Likewise, you can configure the home page's title, subtitle and icon in the `_co
 
 ``` yaml
 # Index Page
-index_banner_text: Welcome to Anodyne
+index_banner_text: Welcome to newpaper
 index_banner_text_secondary: Create Websites. Make Magic.
 index_font_awesome_icon_css: fa fa-magic
 ```
@@ -178,7 +177,7 @@ social_platforms:
     fa_icon: fa-facebook
   - url: https://dribbble.com/
     fa_icon: fa-dribbble 
-  - url: https://github.com/klugjo/hexo-theme-anodyne
+  - url: https://github.com/klugjo/hexo-theme-newpaper
     fa_icon: fa-github
 ```
 
@@ -188,7 +187,7 @@ This theme was created by Jonathan Klughertz, check out my [github](https://gith
 
 ## Bugs
 
-If you have a question, feature request or a bug you need me to fix, please [click here](https://github.com/klugjo/hexo-theme-anodyne/issues/new) to file an issue.
+If you have a question, feature request or a bug you need me to fix, please [click here](https://github.com/klugjo/hexo-theme-newpaper/issues/new) to file an issue.
 
 ## License
 

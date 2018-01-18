@@ -1,5 +1,5 @@
 # Logo
-logo_image_source: /uploads/2017/05/onebagger-90.png
+logo_image_source: /images/logo.png
 
 # Index Page
 index_banner_text: OneBagger.com
@@ -41,7 +41,7 @@ about_widget_text: "Proud Mother of Two Awesome Kids. When not looking after the
 # Comments.
 comments:
   # Disqus comments
-  disqus_shortname: 
+  disqus_shortname:
 
 # Google Analytics Tracking ID
 google_analytics:
@@ -53,7 +53,7 @@ authors:
     about: Kate is a mid-lifer who quit a growing corporate career to reawaken her passions and her lifelong dream of traveling the world.
   noah:
     name: Noah Smith
-    avatar: /uploads/2016/12/noah-s.jpg 
+    avatar: /uploads/2016/12/noah-s.jpg
     about: Noah is a freelance writer who has traveled over 32 countries so far. Onebagger is the place where he shares trip details, travel itineraries, planning and booking tips and travel tales. His aim- to help you plan your travel adventure on your terms, choose best travel gear and to your budget.
   onebagger:
     name: OneBagger.com

@@ -17,11 +17,12 @@
                         tags.push('<a class="fw3 ph1 br1 bg-light-gray black-90 dim" href="' +  config.root + tag.path + '">#' + tag.name + '</a>');
                     });
                 } %>
-
+                <% if (config.enableToC) { %>
                 <nav role="navigation" class="toc-container">
                     <h5>On this Page</h5>
                     <%- toc(page.content, {list_number: false, max_depth: 3}) %>
                 </nav>
+                <% } %>
                 <!-- Main Post Content -->
                 <article>
                     <%- page.content %>

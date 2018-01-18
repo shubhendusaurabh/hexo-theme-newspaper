@@ -1,4 +1,3 @@
-const sizeOf = require('image-size');
 const sharp = require('sharp');
 const fs = require('fs');
 
@@ -21,7 +20,7 @@ hexo.extend.helper.register('thumb', function (path) {
     if (!err) {
       return filename;
     }
-    // no then generate new thumb with sharp 
+    // no then generate new thumb with sharp
     // console.log(`${hexo.source_dir}${filename}`)
     sharp(`${hexo.source_dir}${path}`)
       .resize(480, 240)
