@@ -101,8 +101,8 @@
             "position": 2,
                 "item": {
                 "@type": "WebPage",
-                "@id": "<%- config.url %>/category/<%- page.categories.length ? page.categories.data[0].name : '' %>/",
-                "name": "<%- page.categories.length ? page.categories.data[0].name : '' %>"
+                "@id": "<%- config.url %>/category/<%- (page.categories && page.categories.data.length) ? page.categories.data[0].name : '' %>/",
+                "name": "<%- (page.categories && page.categories.data.length) ? page.categories.data[0].name : '' %>"
             }
         },{
             "@type": "ListItem",

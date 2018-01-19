@@ -1,4 +1,4 @@
-<% if (page.author) { %>
+<% if (page.author && theme.authors[page.author]) { %>
 <article class="center ba mv4" itemprop="author" itemscope itemtype="https://schema.org/Person">
     <meta itemprop="name" content="<%= theme.authors[page.author].name %>">
     <h4 class="f4 bg-near-black white mv0 pv2 ph3">Written By <%= theme.authors[page.author].name %></h4>
