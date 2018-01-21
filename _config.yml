@@ -1,5 +1,7 @@
 # Logo
 logo_image_source: /images/logo.png
+logo_height: 32
+logo_width: 272
 
 # Index Page
 index_banner_text: sitename

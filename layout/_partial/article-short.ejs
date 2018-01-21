@@ -12,7 +12,7 @@
           <%- item.excerpt || item.description %>
         </p>
         <p class="f6 lh-copy mv0">By
-          <%- item.author || config.default_author || 'Barbara Jenkins' %> on
+          <%- item.author || config.author %> on
             <time class="dim">
               <%= item.date.format(theme.archive_date_format) %>
             </time>

@@ -101,14 +101,6 @@
             "position": 2,
                 "item": {
                 "@type": "WebPage",
-                "@id": "<%- config.url %>/category/<%- (page.categories && page.categories.data.length) ? page.categories.data[0].name : '' %>/",
-                "name": "<%- (page.categories && page.categories.data.length) ? page.categories.data[0].name : '' %>"
-            }
-        },{
-            "@type": "ListItem",
-            "position": 3,
-                "item": {
-                "@type": "WebPage",
                 "@id": "<%= config.url %><%= config.root %><%= page.path %>",
                 "name": "<%- page.title %>"
             }

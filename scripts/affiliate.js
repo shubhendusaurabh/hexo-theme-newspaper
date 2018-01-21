@@ -49,7 +49,7 @@ if (hexo.config.amazon && hexo.config.amazon.enable) {
     const $ = cheerio.load(source, {
       decodeEntities: false
     });
-    $('a').each((index, element) => {
+    $('a, area').each((index, element) => {
       let href = $(element).attr('href');
       const url = URL.parse(href);
 
