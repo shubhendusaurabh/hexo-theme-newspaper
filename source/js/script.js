@@ -1,3 +1,3 @@
 $(document).ready(function(e) {
-  if($.rwdImageMaps) $('img[usemap]').rwdImageMaps();
+  if($().rwdImageMaps) $('img[usemap]').rwdImageMaps();
 });
