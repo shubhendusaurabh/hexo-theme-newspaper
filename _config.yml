@@ -2,7 +2,7 @@
 logo_image_source: /images/logo.png
 logo_height: 32
 logo_width: 272
-
+favicon: /images/favicon.png
 # Index Page
 index_banner_text: sitename
 index_banner_text_secondary: We are the best blog in the world.
