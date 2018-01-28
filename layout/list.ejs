@@ -1,0 +1,35 @@
+<!-- Banner -->
+<%- partial('_partial/banner.ejs', {
+  mainText: page.title || theme.default_post_title || __('default_post_title'),
+  pubDate: '',
+  banner: page.cover || '',
+  secondaryText: ''
+}) %>
+<!-- Content -->
+<section class="w-100 ph2 ph4-m ph5-l mv2">
+  <div class="w-80 f4-l f5 center black-70 content">
+    <div class="fl w-100 left fw3 lh-copy post-content">
+      <!-- Main Post Content -->
+      <article>
+        <%- page.content %>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="w-100 pv3 f6 ph3 ph4-ns">
+  <div class="mw9 center ph3-ns cf">
+      <% site.categories.findOne({name: page.series[0]}).posts.forEach(function(post){ %>
+        <article class="fl w-100 w-third-ns pa2">
+          <a href="<%- url_for(post.path) %>"><img src="<%- thumb(post.cover) %>" class="w-100 db related-post-image grow" width="265" height="198" alt="<%- post.title %>"></a>
+          <div class="pa3">
+            <h4>
+              <a href="<%- url_for(post.path) %>" class="link dim lh-title">
+                <%= (post.title || theme.default_post_title) %>
+              </a>
+            </h4>
+            <small class="gray db pv2"><%- post.description %></small>
+          </div>
+        </article>
+      <% }) %>
+  </div>
+</section>
