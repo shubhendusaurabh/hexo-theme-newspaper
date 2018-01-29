@@ -89,3 +89,12 @@ footer_about: "Site Name"
 banner: /images/banner.jpg
 
 yandexId: 12345678
+
+mailchimp:
+  user:
+  u:
+  id:
+
+amazon:
+  ads:
+    - ''
