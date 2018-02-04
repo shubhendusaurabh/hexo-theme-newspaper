@@ -1,0 +1,19 @@
+<section class="w-100 pv3 f6 ph3 ph4-ns">
+    <div class="mw9 center ph3-ns">
+        <div class="cf ph2-ns">
+            <% posts = list_related_posts({maxCount: 3}) %>
+            <% posts.map(function(post){ %>
+                <article class="fl w-100 w-third-ns pa2">
+                    <a href="<%- url_for(post.path) %>"><img src="<%- thumb(post.cover) %>" class="w-100 db related-post-image grow" width="265" height="198" alt="<%- post.title %>"></a>
+                    <div class="pa3">
+                        <h4><a href="<%- url_for(post.path) %>" class="link dim lh-title">
+                            <%= (post.title || theme.default_post_title) %>
+                        </a>
+                        </h4>
+                        <small class="gray db pv2"><%- post.description %></small>
+                    </div>
+                </article>
+            <% }) %>
+        </div>
+    </div>
+</section>
