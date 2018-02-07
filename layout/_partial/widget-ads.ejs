@@ -1,3 +1,4 @@
 <% for (var i in theme.amazon.ads) { %>
-  <script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=<%- theme.amazon.ads[i] %>"></script>
+  <div id="amzn-assoc-ad-<%- theme.amazon.ads[i] %>"></div>
+  <script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=<%- theme.amazon.ads[i] %>"></script>
 <% } %>
