@@ -96,7 +96,7 @@ mailchimp:
   u:
   id:
 
-twitter_handle: @travel
+twitter_handle: '@travel'
 
 amazon:
   ads:
