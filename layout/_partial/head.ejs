@@ -31,7 +31,7 @@
         <meta property="twitter:description" content="<% page.description %>" />
     <% } else if (config.description) { %>
         <meta property="og:description" content="<%= config.description %>" />
-        <meta property="twitter:description" content="<% config.description %>" />
+        <meta property="twitter:description" content="<%= config.description %>" />
     <% } %>
     <!--Open Graph Site Name-->
     <meta property="og:site_name" content="<%= config.title %>"/>
@@ -56,7 +56,7 @@
         <meta property="og:image" content="<%= config.url %><%= config.cover %>"/>
         <meta property="twitter:image" content="<%= config.url %><%= config.cover %>"/>
     <% } %>
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <% if(theme.twitter_handle) { %>
         <meta name="twitter:site" content="<%= theme.twitter_handle %>" />
         <meta name="twitter:creator" content="<%= theme.twitter_handle %>" />
