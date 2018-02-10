@@ -52,11 +52,13 @@ if (hexo.config.amazon && hexo.config.amazon.enable) {
     $('a, area').each((index, element) => {
       let href = $(element).attr('href');
       const url = URL.parse(href);
-
+      //TODO:: filename as param in reachGoal
       if (url.hostname) {
         const domain = getDomain(url.hostname);
         if (isAmazonDomain(domain)) {
           const amznTag = getAmznTagInConfig(domain)
+          const type = $(element).prop('nodeName')
+          const text = $(element).text() || $(element).attr('title') || 'img'
           if (amznTag && href.indexOf(amznTag) === -1) {
             let taggedHref = '';
             if (!url.query) {
@@ -67,7 +69,8 @@ if (hexo.config.amazon && hexo.config.amazon.enable) {
             $(element).attr({
               href: taggedHref,
               target: '_blank',
-              rel: 'nofollow noopener'
+              rel: 'nofollow noopener',
+              onclick: `yaCounter${hexo.config.theme_config.yandexId}.reachGoal('amzn', {text: '${text}', type: '${type}'}); return true;`
             });
           }
         }
