@@ -28,7 +28,7 @@
     <!--Open Graph Description-->
     <% if (page.description){ %>
         <meta property="og:description" content="<%= page.description %>" />
-        <meta property="twitter:description" content="<% page.description %>" />
+        <meta property="twitter:description" content="<%= page.description %>" />
     <% } else if (config.description) { %>
         <meta property="og:description" content="<%= config.description %>" />
         <meta property="twitter:description" content="<%= config.description %>" />
