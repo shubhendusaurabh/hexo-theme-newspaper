@@ -42,6 +42,7 @@
         <meta property="article:published_time" content="<%= page.date %>" />
         <meta property="article:modified_time" content="<%= page.date %>" />
     <% } %>
+    <meta property="article:author" content="<%= config.title %>" />
     <!--Type page-->
     <% if(page.title) { %>
         <meta property="og:type" content="article" />
@@ -72,12 +73,10 @@
             if (page.year) title.push(__('archive_b', page.year + (page.month ? '/' + page.month : '')));
             else title.push(__('archive_a'));
         }
+        if (page.path === 'index.html') title.push(config.subtitle);
         title.push(config.title);
     %>
     <title><%= title.join(' - ') %></title>
-    <% if (is_post() && config.generator_amp){ %>
-        <link rel="amphtml" href="<%= config.url %><%= config.root %><%= page.path %>/amp/index.html">
-      <% } %>
     <!-- Google Analytics -->
     <%- partial('google-analytics') %>
     <!-- <script src="//vyper.io/ip-js/ip-fullscreen-389.js"></script> -->
@@ -104,7 +103,47 @@
                 "@id": "<%= config.url %><%= config.root %><%= page.path %>",
                 "name": "<%- page.title %>"
             }
-        }
+        }]
     }
     </script>
+    <script type="application/ld+json">
+        [{
+          "@context": "http://schema.org",
+          "@type": "WebSite",
+          "url": "<%= config.url %>",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "<%= config.url %>?s={search_term}",
+            "query-input": "required name=search_term" }
+        }]
+    </script>
+    <% if (page.cover) { %>
+    <script type="application/ld+json">
+        [{
+          "@context": "http://schema.org",
+          "@type": "Article",
+          "mainEntityOfPage":{
+          "@type":"WebPage",
+          "@id":"<%= config.url %><%= config.root %><%= page.path %>"
+          },
+          "author": { "name": "<%= config.title %>" },
+          "name": "<%= page.title || config.title %>",
+          "headline": "<%= page.title || config.title %>",
+          "datePublished": "<%= page.date %>",
+          "dateModified": "<%= page.date %>",
+          "publisher": {
+          "@type": "Organization",
+          "name": "<%= config.title %>",
+          "logo": {
+          "@type": "ImageObject",
+          "url": "<%= config.url %><%= theme.logo_image_source %>",
+          "width": <%= theme.logo_width %>,
+          "height": <%= theme.logo_height %>
+          }
+          },
+          "image": { "@type": "ImageObject", "url" : "<%= config.url %><%= page.cover %>", "width": 1200, "height": 600 },
+          "description": "<%= page.description %>"
+        }]
+    </script>
+    <% } %>
 </head>
