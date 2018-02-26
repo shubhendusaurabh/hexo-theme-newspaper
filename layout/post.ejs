@@ -43,7 +43,7 @@
                 <%- partial('_partial/comments.ejs') %>
         </div>
     </div>
-    <%- partial('_partial/widget-share', {item: page}) %>
+    <%- partial('_partial/widget-share', {item: page, tags: page.tags.map(tag => tag.name.replace(' ', '') )}) %>
     <%- partial(theme.posts_widget) %>
     <p class="tc gray">
         <small>We are a participant in the Amazon Services LLC Associates Program, an affiliate advertising

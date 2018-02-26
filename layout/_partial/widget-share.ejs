@@ -8,7 +8,7 @@
         </svg>
         <span class="f6 ml3 pr2">Facebook</span>
     </a>
-    <a class="no-underline near-white bg-animate hover-bg-gray inline-flex items-center ma2 tc br2 pa2 twitter-button" href="http://twitter.com/share?text=<%= encodeURIComponent(item.title) %>&amp;url=<%= encodeURI(item.permalink) %>"
+    <a class="no-underline near-white bg-animate hover-bg-gray inline-flex items-center ma2 tc br2 pa2 twitter-button" href="http://twitter.com/share?text=<%= encodeURIComponent(item.title) %>&amp;url=<%= encodeURI(item.permalink) %>&amp;via=<%= theme.twitter_handle %><% if (tags.length) { %> &amp;hashtags=<%= tags %> <% } %>"
         onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
         <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd"
             stroke-linejoin="round" stroke-miterlimit="1.414">
