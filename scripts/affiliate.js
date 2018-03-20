@@ -59,6 +59,7 @@ if (hexo.config.amazon && hexo.config.amazon.enable) {
           const amznTag = getAmznTagInConfig(domain)
           const type = $(element).prop('nodeName')
           const text = $(element).text() || $(element).attr('title') || 'img'
+          text.replace(/\'/g, '')
           if (amznTag && href.indexOf(amznTag) === -1) {
             let taggedHref = '';
             if (!url.query) {
