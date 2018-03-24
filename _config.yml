@@ -98,6 +98,10 @@ mailchimp:
 
 twitter_handle: 'travel'
 
+convertfox:
+  enable: false
+  appId: ''
+
 amazon:
   ads:
     - ''

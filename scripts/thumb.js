@@ -11,6 +11,7 @@ const sizes = {
 
 hexo.extend.helper.register('thumb', function (path) {
   if (!path) return '';
+  path = path.trim();
   const temp = path.split('.')
   // check if thumb size image present
   const filename = `${temp[0]}-${sizes.small}.${temp[1]}`
