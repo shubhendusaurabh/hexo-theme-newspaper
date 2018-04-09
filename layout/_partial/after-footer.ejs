@@ -31,3 +31,16 @@ else window.addEventListener('load', loadDeferredStyles);
 <% for (var i in theme.scripts) { %>
   <%- js(theme.scripts[i]) %>
 <% } %>
+<% if (theme.gcs) { %>
+<script>
+    (function() {
+        var cx = '<%= theme.gcs.id %>';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+    })();
+</script>
+<% } %>
