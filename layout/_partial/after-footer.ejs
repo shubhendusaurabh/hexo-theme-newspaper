@@ -16,6 +16,7 @@
     <%- css('css/style.css') %>
 </noscript>
 <script>
+var tag = '<%- config.amazon["amazon.com"] %>'
 var loadDeferredStyles = function() {
     var addStylesNode = document.getElementById("deferred-styles");
     var replacement = document.createElement("div");
