@@ -43,5 +43,5 @@ $(document).ready(function(e) {
       })
     }
   }
-  setTimeout(checkPromo, 2000)
+  setTimeout(checkPromo, 5000)
 });
