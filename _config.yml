@@ -105,3 +105,6 @@ convertfox:
 amazon:
   ads:
     - ''
+  popover:
+      enable: false
+      linkid: ''
