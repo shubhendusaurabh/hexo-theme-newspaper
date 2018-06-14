@@ -71,7 +71,7 @@ if (hexo.config.amazon && hexo.config.amazon.enable) {
               href: taggedHref,
               target: '_blank',
               rel: 'nofollow noopener',
-              onclick: `yaCounter${hexo.config.theme_config.yandexId}.reachGoal('amzn', {text: '${text}', type: '${type}'}); return true;`
+              onclick: `yaCounter${hexo.config.theme_config.yandexId}.reachGoal('amzn'); return true;`
             });
           }
         }
