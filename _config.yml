@@ -102,6 +102,10 @@ convertfox:
   enable: false
   appId: ''
 
+fb:
+  enable: false
+  pixelid: 1854880834750809
+
 amazon:
   ads:
     - ''
