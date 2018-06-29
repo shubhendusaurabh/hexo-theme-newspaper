@@ -44,4 +44,9 @@ $(document).ready(function(e) {
     }
   }
   setTimeout(checkPromo, 5000)
+
+  function openModal() {
+    $('#mc-embedded-subscribe-form').modal();
+  }
+  setTimeout(openModal, 5000)
 });
