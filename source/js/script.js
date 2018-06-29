@@ -48,5 +48,5 @@ $(document).ready(function(e) {
   function openModal() {
     $('#mc-embedded-subscribe-form').modal();
   }
-  setTimeout(openModal, 5000)
+  setTimeout(openModal, 20000)
 });
