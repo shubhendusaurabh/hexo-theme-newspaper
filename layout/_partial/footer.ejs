@@ -16,5 +16,10 @@
                 </a>
             <% }) %>
         </div>
+        <% if (config.footer_text) { %>
+        <div class="tc">
+            <small class="gray"><%- config.footer_text %></small>
+        </div>
+        <% } %>
     </div>
 </footer>
