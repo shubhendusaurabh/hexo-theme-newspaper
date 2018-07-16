@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <!-- Head tag -->
 <%- partial('_partial/head') %>
-
 <body itemscope="itemscope" itemtype="https://schema.org/WebPage">
-
 <!-- Main Content -->
 <%- body %>
-
+<% if (theme.newsletter) {%>
 <%- partial('_partial/newsletter') %>
+<% } %>
 <!-- Footer -->
 <%- partial('_partial/footer') %>
-
 <!-- After Footer -->
 <%- partial('_partial/after-footer') %>
-
 </body>
-
 </html>

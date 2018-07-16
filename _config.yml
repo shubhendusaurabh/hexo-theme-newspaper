@@ -16,6 +16,10 @@ menu:
 
 posts_widget: '_partial/widget-recent-posts'
 
+sidebar: false
+
+newsletter: true
+
 menu_footer:
   - url: /about-us/
     title: About Us

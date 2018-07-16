@@ -195,4 +195,6 @@ MIT
 
 Enjoy :)
 
+## Changelog
 
+- 16-07-2018 Sidebar (theme.sidebar, theme.showBio, theme.newsletter)

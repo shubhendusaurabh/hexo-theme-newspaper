@@ -1,3 +1,4 @@
+<main id="main-content" class="main">
 <!-- Banner -->
 <%- partial('_partial/banner.ejs', {
     mainText: page.title || theme.default_post_title || __('default_post_title'),
@@ -5,9 +6,12 @@
     banner: page.cover || '',
     secondaryText: ''
 }) %>
-
-<!-- Content -->
+<% if (theme.sidebar || page.sidebar) {%>
+<section class="w-100 w-80-l ph2 ph4-m ph5-l mv2 fl content-container">
+<% } else { %>
 <section class="w-100 ph2 ph4-m ph5-l mv2">
+<% } %>
+<!-- Content -->
     <div class="ph4-l f4-l f5 center black-70 content">
         <div class="fl w-100 left fw3 lh-copy post-content">
             <!-- Tags Vertical -->
@@ -38,7 +42,9 @@
                         <%- tags.join(' ') %>
                     </div>
                 <% } %>
+                <% if (theme.showBio) { %>
                 <%- partial('_partial/widget-about', {item: page}) %>
+                <% } %>
                 <!-- Comments -->
                 <%- partial('_partial/comments.ejs') %>
         </div>
@@ -51,3 +57,11 @@
             to Amazon.com, Amazon.co.uk or Amazon.ca.</small>
     </aside>
 </section>
+<% if (theme.sidebar || page.sidebar) { %>
+<aside class="w-20-l w-100 fl sidebar ph2 tc" style="position: sticky;top: 20px;">
+<%- partial('_partial/widget-sidebar-ads') %>
+<%- partial('_partial/widget-sidebar-signup') %>
+</aside>
+<div class="cf"></div>
+<% } %>
+</main>
