@@ -20,6 +20,8 @@ sidebar: false
 
 newsletter: true
 
+showBio: true
+
 menu_footer:
   - url: /about-us/
     title: About Us

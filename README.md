@@ -195,6 +195,13 @@ MIT
 
 Enjoy :)
 
+## TODO
+
+- optional cover
+- full width ToC on mobile
+- sidebar content on mobile
+- ad rotation & CRO
+
 ## Changelog
 
 - 16-07-2018 Sidebar (theme.sidebar, theme.showBio, theme.newsletter)
