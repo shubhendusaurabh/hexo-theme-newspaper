@@ -20,7 +20,11 @@ sidebar: false
 
 newsletter: true
 
+leaderboard: false
+
 showBio: true
+
+showBanner: true
 
 menu_footer:
   - url: /about-us/

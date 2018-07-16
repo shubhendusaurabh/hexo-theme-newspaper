@@ -14,6 +14,11 @@
 <!-- Content -->
     <div class="ph4-l f4-l f5 center black-70 content">
         <div class="fl w-100 left fw3 lh-copy post-content">
+            <% if(theme.leaderboard || config.leaderboard || page.leaderboard) { %>
+            <aside class="leaderboard tc">
+                <a href="<%- site.data.leaderboard.adLink %>"><img src="<%- site.data.leaderboard.imageLink %>" class="grow"></a>
+            </aside>
+            <% } %>
             <!-- Tags Vertical -->
             <% if (page.tags && page.tags.length) {
                     var tags = [];
