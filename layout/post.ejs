@@ -1,19 +1,21 @@
 <main id="main-content" class="main">
-<!-- Banner -->
-<%- partial('_partial/banner.ejs', {
-    mainText: page.title || theme.default_post_title || __('default_post_title'),
-    pubDate: page.date,
-    banner: page.cover || '',
-    secondaryText: ''
-}) %>
+
 <% if (theme.sidebar || page.sidebar) {%>
-<section class="w-100 w-80-l ph2 ph4-m ph5-l mv2 fl content-container">
+<section class="w-100 w-70-l ph2 ph4-m pl5-l mv2 fl content-container">
 <% } else { %>
 <section class="w-100 ph2 ph4-m ph5-l mv2">
 <% } %>
 <!-- Content -->
     <div class="ph4-l f4-l f5 center black-70 content">
         <div class="fl w-100 left fw3 lh-copy post-content">
+            <!-- Banner -->
+            <%- partial('_partial/banner.ejs', {
+                mainText: page.title || theme.default_post_title || __('default_post_title'),
+                pubDate: page.date,
+                banner: page.cover || '',
+                secondaryText: '',
+                author: page.author || config.author || ''
+            }) %>
             <% if(theme.leaderboard || config.leaderboard || page.leaderboard) { %>
             <aside class="leaderboard tc">
                 <a href="<%- site.data.leaderboard.adLink %>"><img src="<%- site.data.leaderboard.imageLink %>" class="grow"></a>
@@ -38,7 +40,7 @@
                 </article>
 
                 <%- partial('_partial/review', {item: page}) %>
-                <div class="tc promo">
+                <div class="tc promo full-banner">
                     <%- partial('_partial/widget-ads') %>
                 </div>
                 <!-- Tags Bottom -->
@@ -63,9 +65,10 @@
     </aside>
 </section>
 <% if (theme.sidebar || page.sidebar) { %>
-<aside class="w-20-l w-100 fl sidebar ph2 tc" style="position: sticky;top: 20px;">
-<%- partial('_partial/widget-sidebar-ads') %>
+<aside class="w-30-l w-100 fl sidebar ph2 tc" style="position: sticky;top: 20px;">
+<%- partial('_partial/widget-sidebar-social') %>
 <%- partial('_partial/widget-sidebar-signup') %>
+<%- partial('_partial/widget-sidebar-ads') %>
 </aside>
 <div class="cf"></div>
 <% } %>

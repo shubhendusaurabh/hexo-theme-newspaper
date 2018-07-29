@@ -74,7 +74,7 @@
     <!-- Google Analytics -->
     <%- partial('google-analytics') %>
     <!-- <script src="//vyper.io/ip-js/ip-fullscreen-389.js"></script> -->
-    <% socials = JSON.stringify(theme.social_platforms.map((platform) => platform.url)) %>
+    <% socials = JSON.stringify(Object.values(theme.social_platforms).forEach((platform) => platform.url)) %>
     <script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"<%- config.url %>","name":"<%- config.title %>","alternateName":"<%- config.name %>","potentialAction":{"@type":"SearchAction","target":"<%- config.url %>/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
     <script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"Organization","url":"<%- config.url %>","sameAs":<%- socials %>,"@id":"#organization","name":"<%- config.title %>","logo":"<%- config.url %><%- theme.logo_image_source %>"}</script>
     <script type="application/ld+json">
