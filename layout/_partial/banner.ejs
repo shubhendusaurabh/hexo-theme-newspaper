@@ -1,5 +1,5 @@
 <div class="avenir tc-l ph3 ph4-ns">
-    <% if (banner && theme.showBanner || page.showBanner) { %><img class="w-100 dib" src="<%= banner %>" alt="<%- mainText %>" /><% } %>
+    <% if (banner && page.showBanner || theme.showBanner) { %><img class="w-100 dib" src="<%= banner %>" alt="<%- mainText %>" /><% } %>
     <h1 class="f3 f2-l lh-title fw1 mv0">
         <%- mainText %>
     </h1>
@@ -10,6 +10,6 @@
     <span class="author ml2"><%= author %></span>
     <% } %>
     <% if (secondaryText) { %>
-        <span class="f5 f4-l db fw1"><%= secondaryText %></span>
+        <h3 class="f5 f4-l db fw1"><%= secondaryText %></h3>
     <% } %>
 </div>

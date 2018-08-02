@@ -6,9 +6,14 @@
     pubDate: '',
     author: ''
 }) %>
-
+<% if (theme.carousel && theme.carousel.enable) { %>
+<%- partial('_partial/carousel.ejs') %>
+<% } %>
+<% if (theme.marketing && theme.marketing.enable) { %>
+<%- partial('_partial/marketing.ejs') %>
+<% } %>
 <!-- Content -->
-<div class="w-100 ph2 ph4-m ph5-l mv2">
+<div class="w-100 ph2 ph4-m ph6-l mv2">
     <div class="content">
         <div class="mw8 center">
             <% page.posts.forEach(function(item, index) { %>
@@ -18,3 +23,6 @@
     </div>
     <!-- <%- partial('_partial/pagination') %> -->
 </div>
+<% if (theme.homePageText) {%>
+<div class="w-100 ph2 ph4-m ph5-l mv2"><%- theme.homePageText %></div>
+<% } %>

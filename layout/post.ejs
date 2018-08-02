@@ -10,7 +10,7 @@
         <div class="fl w-100 left fw3 lh-copy post-content">
             <!-- Banner -->
             <%- partial('_partial/banner.ejs', {
-                mainText: page.title || theme.default_post_title || __('default_post_title'),
+                mainText: page.title + (theme.enableSubtitle ? ' ' + theme.subtitle : '') || theme.default_post_title || __('default_post_title'),
                 pubDate: page.date,
                 banner: page.cover || '',
                 secondaryText: '',
@@ -28,7 +28,7 @@
                         tags.push('<a class="fw3 ph1 br1 bg-light-gray black-90 dim" href="' +  config.root + tag.path + '">#' + tag.name + '</a>');
                     });
                 } %>
-                <% if (config.enableToC) { %>
+                <% if (config.enableToC || theme.enableToC || page.enableToC) { %>
                 <nav role="navigation" class="toc-container">
                     <h5>On This Page</h5>
                     <%- toc(page.content, {list_number: false, max_depth: 3}) %>

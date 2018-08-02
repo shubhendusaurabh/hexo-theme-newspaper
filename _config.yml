@@ -139,3 +139,19 @@ amazon:
   popover:
       enable: false
       linkid: ''
+
+enableSubtitle: false
+
+marketing:
+  enable: false
+  image: ''
+  link: ''
+  title: ''
+  subtitle: ''
+carousel:
+  enable: false
+  items:
+    - url: ''
+      image: ''
+
+homePageText: ''
