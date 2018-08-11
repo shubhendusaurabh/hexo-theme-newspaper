@@ -1,14 +1,10 @@
 <div class="carousel">
   <div class="siema">
-      <a class="carousel-item" href="/generator">
-          <img class="carousel-image" src="/images/site/costume-ideas-and-guides.jpg">
-      </a>
-      <a class="carousel-item" href="/">
-          <img class="carousel-image" src="/images/site/costume-idea-generator.jpg">
-      </a>
-      <a class="carousel-item" href="/giveaway/">
-          <img class="carousel-image" src="/images/site/halloween-costume-contest.jpg">
-      </a>
+    <% theme.carousel.items.forEach((item) => { %>
+    <a class="carousel-item" href="<%- item.url %>">
+        <img class="carousel-image" src="<%- item.image %>">
+    </a>
+    <% }) %>
   </div>
   <button class="control prev">‹</button>
   <button class="control next">›</button>
