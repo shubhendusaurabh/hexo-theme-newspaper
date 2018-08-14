@@ -87,7 +87,7 @@
                         "@id": "<%- category.permalink %>",
                         "name": "<%- category.name %>"
                     }
-                },
+                }<% if (!page.__index) { %>,
                 {
                     "@type": "ListItem",
                     "position": 2,
@@ -95,7 +95,7 @@
                         "@id": "<%= config.url %><%= config.root %><%= page.path %>",
                         "name": "<%- page.title %>"
                     }
-                }
+                } <% } %>
             ]
         }
     </script>
@@ -128,7 +128,7 @@
         }
     </script>
     <% } %>
-    <% if (page.category || page.tag) { %>
+    <% if (page.category || page.tag || page.__index) { %>
     <% let listItems = page.posts.map((item, index) => { return {"@type":"ListItem","position": index + 1,"url":item.permalink} }) %>
     <script type="application/ld+json">
         {
