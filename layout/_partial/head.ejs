@@ -3,33 +3,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="<%- theme.favicon %>">
-    <!--Description-->
-    <% if (page.description){ %>
-        <meta name="description" content="<%= page.description %>">
-    <% } else if (config.description){ %>
-        <meta name="description" content="<%= config.description %>">
-    <% } else if (page.excerpt){ %>
-        <meta name="description" content="<%= strip_html(page.excerpt).replace(/^\s*/, '').replace(/\s*$/, '') %>">
-    <% } else if (page.content){ %>
-        <meta name="description" content="<%= strip_html(page.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 150) %>">
-    <% } %>
-    <!--Author-->
+    <link rel="canonical" href="<%- page.permalink || config.url %>">
+    <% let description = page.description || strip_html(page.excerpt || page.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 150) || config.description
+        if (page.category || page.tag) description = `All articles about ${page.tag || page.category} - ${config.subtitle}` 
+    %>
+    <meta name="description" content="<%= description %>">
+    <meta name="og:description" content="<%= description %>">
     <% if (config.author){ %>
         <meta name="author" content="<%= config.author %>">
     <% } %>
-    <!--Open Graph Title-->
-    <% if (page.title){ %>
-        <meta property="og:title" content="<%= page.title %>"/>
-    <% } else { %>
-        <meta property="og:title" content="<%= config.title %>"/>
-    <% } %>
-    <!--Open Graph Description-->
-    <% if (page.description){ %>
-        <meta property="og:description" content="<%= page.description %>" />
-    <% } else if (config.description) { %>
-        <meta property="og:description" content="<%= config.description %>" />
-    <% } %>
-    <!--Open Graph Site Name-->
     <meta property="og:site_name" content="<%= config.title %>"/>
     <meta property="og:locale" content="en_US"/>
     <meta property="og:url" content="<%= config.url %><%= config.root %><%= page.path %>" />
@@ -39,24 +21,15 @@
         <meta property="article:modified_time" content="<%= page.date %>" />
     <% } %>
     <meta property="article:author" content="<%= config.title %>" />
-    <!--Type page-->
-    <% if(page.title) { %>
-        <meta property="og:type" content="article" />
-    <% } else { %>
-        <meta property="og:type" content="website" />
-    <% } %>
-    <!--Page Cover-->
-    <% if (page.cover) { %>
-        <meta property="og:image" content="<%= config.url %><%= page.cover %>" />
-    <% } else if (config.cover) { %>
-        <meta property="og:image" content="<%= config.url %><%= config.cover %>"/>
-    <% } %>
+    <% let type = page.title ? 'article' : 'website' %>
+    <meta property="og:type" content="<%- type %>" />
+    <% let cover = `${config.url}${page.cover || config.cover}` %>
+    <meta property="og:image" content="<%= cover %>" />
     <meta name="twitter:card" content="summary_large_image" />
     <% if(theme.twitter_handle) { %>
         <meta name="twitter:site" content="@<%= theme.twitter_handle %>" />
         <meta name="twitter:creator" content="@<%= theme.twitter_handle %>" />
     <% } %>
-    <!-- Title -->
     <%
         var title = [];
         if (page.current > 1) title.push(__('page', page.current));
@@ -73,49 +46,62 @@
         if (page.path === 'index.html') title.push(config.description);
     %>
     <title><%= title.join(' ') %></title>
-    <!-- Google Analytics -->
+    <meta property="og:title" content="<%= title.join(' ') %>"/>
     <%- partial('google-analytics') %>
-    <!-- <script src="//vyper.io/ip-js/ip-fullscreen-389.js"></script> -->
-    <% socials = JSON.stringify(Object.values(theme.social_platforms).forEach((platform) => platform.url)) %>
-    <script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"<%- config.url %>","name":"<%- config.title %>","alternateName":"<%- config.name %>","potentialAction":{"@type":"SearchAction","target":"<%- config.url %>/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
-    <script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"Organization","url":"<%- config.url %>","sameAs":<%- socials %>,"@id":"#organization","name":"<%- config.title %>","logo":"<%- config.url %><%- theme.logo_image_source %>"}</script>
+    <% let socials = JSON.stringify(Object.values(theme.social_platforms).map((platform) => platform.url)) %>
+    <script type='application/ld+json'>
+        {
+            "@context":"http://schema.org",
+            "@type":"WebSite",
+            "@id":"#website",
+            "url":"<%- config.url %>",
+            "name":"<%- config.title %>",
+            "alternateName":"<%- config.name %>",
+            "potentialAction": {
+                "@type":"SearchAction",
+                "target":"<%- config.url %>/search/?q={search_term_string}",
+                "query-input":"required name=search_term_string"
+            }
+        }
+    </script>
+    <script type='application/ld+json'>
+        {
+            "@context":"http://schema.org",
+            "@type":"Organization",
+            "url":"<%- config.url %>",
+            "sameAs":<%- socials %>,
+            "@id":"#organization",
+            "name":"<%- config.title %>",
+            "logo":"<%- config.url %><%- theme.logo_image_source %>"
+        }
+    </script>
+    <% let category = page.categories ? page.categories.data[0] : { name: 'Home', permalink: config.url } %>
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [{
-            "@type": "ListItem",
-            "position": 1,
-                "item": {
-                "@type": "WebSite",
-                "@id": "<%- config.url %>",
-                "name": "Home"
-            }
-        },{
-            "@type": "ListItem",
-            "position": 2,
-                "item": {
-                "@type": "WebPage",
-                "@id": "<%= config.url %><%= config.root %><%= page.path %>",
-                "name": "<%- page.title %>"
-            }
-        }]
-    }
-    </script>
-    <script type="application/ld+json">
-        [{
-          "@context": "http://schema.org",
-          "@type": "WebSite",
-          "url": "<%= config.url %>",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "<%= config.url %>?s={search_term}",
-            "query-input": "required name=search_term" }
-        }]
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@id": "<%- category.permalink %>",
+                        "name": "<%- category.name %>"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@id": "<%= config.url %><%= config.root %><%= page.path %>",
+                        "name": "<%- page.title %>"
+                    }
+                }
+            ]
+        }
     </script>
     <% if (page.cover) { %>
     <script type="application/ld+json">
-        [{
+        {
           "@context": "http://schema.org",
           "@type": "Article",
           "mainEntityOfPage":{
@@ -139,18 +125,25 @@
           },
           "image": { "@type": "ImageObject", "url" : "<%= config.url %><%= page.cover %>", "width": 1200, "height": 600 },
           "description": "<%= page.description %>"
-        }]
+        }
+    </script>
+    <% } %>
+    <% if (page.category || page.tag) { %>
+    <% let listItems = page.posts.map((item, index) => { return {"@type":"ListItem","position": index + 1,"url":item.permalink} }) %>
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "ItemList",
+            "itemListElement": <%- JSON.stringify(listItems) %>
+        }
     </script>
     <% } %>
     <% if (theme.convertfox.enable) { %>
-      <!-- start ConvertFox JS code-->
       <script>
       (function(d,h,w){var convertfox=w.convertfox=w.convertfox||[];convertfox.methods=['trackPageView','identify','track','setAppId'];convertfox.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);convertfox.push(e);return convertfox;}};for(var i=0;i<convertfox.methods.length;i++){var c=convertfox.methods[i];convertfox[c]=convertfox.factory(c)}s=d.createElement('script'),s.src="//d3sjgucddk68ji.cloudfront.net/convertfox.min.js",s.async=!0,e=d.getElementsByTagName(h)[0],e.appendChild(s),s.addEventListener('load',function(e){},!1),convertfox.setAppId("<%= theme.convertfox.appId %>"),convertfox.trackPageView()})(document,'head',window);
       </script>
-      <!-- end ConvertFox JS code-->
     <% } %>
     <% if (theme.fb.enable) { %>
-    <!-- Facebook Pixel Code -->
     <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -163,6 +156,5 @@
         fbq('init', '<%- theme.fb.pixelid %>');
         fbq('track', 'PageView');
     </script>
-    <!-- End Facebook Pixel Code -->
     <% } %>
 </head>

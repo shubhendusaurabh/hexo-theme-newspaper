@@ -1,6 +1,5 @@
 <footer class="bg-1 ph2 ph5-ns pv5">
     <div class="mv8">
-
         <div class="f6 f5-ns center tc white fw3">
             &copy; <%- new Date().getFullYear() %>, <a href="<%- config.url %>"><%- config.title %></a>
         </div>
@@ -9,9 +8,10 @@
                 <a href="<%- page.url %>" class="f6 dib ph2 link white dim" title="<%- page.title %>" ><%- page.title %></a>
             <% }) %>
         </div>
-        <div class="tc mt3">
+        <div class="tc mt3" itemscope itemtype="http://schema.org/Organization">
+            <link itemprop="url" href="<%- config.url %>">
             <% Object.values(theme.social_platforms).forEach(function(platform) {%>
-                <a class="link dib h2 w2 mr3 grow" href="<%= platform.url %>" title="<%= platform.title %>" target="_blank" rel="noopener">
+                <a itemprop="sameAs" class="link dib h2 w2 mr3 grow" href="<%= platform.url %>" title="<%= platform.title %>" target="_blank" rel="noopener">
                     <%- platform.svg %>
                 </a>
             <% }) %>
