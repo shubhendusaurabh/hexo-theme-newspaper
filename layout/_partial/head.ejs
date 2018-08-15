@@ -75,7 +75,7 @@
             "logo":"<%- config.url %><%- theme.logo_image_source %>"
         }
     </script>
-    <% let category = page.categories ? page.categories.data[0] : { name: 'Home', permalink: config.url } %>
+    <% let category = (page.categories && page.categories.data[0]) ? page.categories.data[0] : { name: 'Home', permalink: config.url } %>
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
