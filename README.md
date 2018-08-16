@@ -208,3 +208,4 @@ Enjoy :)
 - 16-07-2018 Leaderboard & ShowBanner (theme.leaderboard & theme.showBanner)
 - 29-07-2018 changed social platforms array to obj
 - 02-08-2018 (marketing, carousel, showSubtitle, homePageText)
+- 16-08-2018 adsense

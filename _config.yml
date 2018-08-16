@@ -133,6 +133,10 @@ fb:
   enable: false
   pixelid: 1854880834750809
 
+adsense:
+  enable: false
+  id: 
+
 amazon:
   ads:
     - ''
