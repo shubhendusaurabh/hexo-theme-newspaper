@@ -7,22 +7,14 @@
 
     var postList = [];
     if (page.category) {
-        site.categories.forEach(function(item) {
-            if(item.name === page.category) {
-                postList = item.posts.slice();
-            }
-        });
-        title = page.category;
+        postList = page.posts;
+        title = page.category + ' - ' + config.description;
     }
     else if (page.tag) {
-        site.tags.forEach(function(item) {
-            if(item.name === page.tag) {
-                postList = item.posts;
-            }
-        });
-        title = "# " + page.tag;
+        postList = page.posts;
+        title = "# " + page.tag + ' - ' +config.description;
     } else {
-        postList = site.posts;
+        postList = page.posts;
     }
 %>
 
@@ -43,4 +35,5 @@
             <% }); %>
         </div>
     </div>
+    <%- partial('_partial/pagination') %>
 </div>

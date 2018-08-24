@@ -37,8 +37,8 @@
             title.push(page.title);
             if (theme.enableSubtitle && (page.source.indexOf('_posts') > -1)) title.push(theme.subtitle)
         }
-        if (page.category) title.push(page.category);
-        if (page.tag) title.push(page.tag);
+        if (page.category) title.push(`${page.category} ${config.description} - ${config.title}`);
+        if (page.tag) title.push(`${page.tag} ${config.description} - ${config.title}`);
         if (page.archive) {
             if (page.year) title.push(__('archive_b', page.year + (page.month ? '/' + page.month : '')));
             else title.push(__('archive_a'));
