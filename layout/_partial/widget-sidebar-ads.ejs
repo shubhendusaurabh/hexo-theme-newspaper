@@ -1,5 +1,6 @@
+<% let ads = site.data['sidebar-ad']; let ad = ads[Math.floor(Math.random() * ads.length)]; %>
 <div class="full-banner">
-<a href="<%- site.data['sidebar-ad'].adLink %>" class="link">
-  <img src="<%- site.data['sidebar-ad'].imageLink %>" alt="sidebar promo" class="grow promo">
+<a href="<%- ad.adLink %>" class="link" rel="nofollow" target="_blank">
+  <img src="<%- ad.imageLink %>" alt="sidebar promo" class="grow promo">
 </a>
 </div>

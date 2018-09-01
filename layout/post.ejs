@@ -17,8 +17,9 @@
                 author: page.author || config.author || ''
             }) %>
             <% if(theme.leaderboard || config.leaderboard || page.leaderboard) { %>
-            <aside class="leaderboard tc">
-                <a href="<%- site.data.leaderboard.adLink %>"><img src="<%- site.data.leaderboard.imageLink %>" class="grow" alt="leaderboard promo"></a>
+            <% let ads = site.data.leaderboard; let ad = ads[Math.floor(Math.random() * ads.length)]; %>
+            <aside class="leaderboard tc mv3">
+                <a href="<%- ad.adLink %>" rel="nofollow" target="_blank"><img src="<%- ad.imageLink %>" class="grow" alt="leaderboard promo"></a>
             </aside>
             <% } %>
             <!-- Tags Vertical -->
@@ -29,8 +30,8 @@
                     });
                 } %>
                 <% if (config.enableToC || theme.enableToC || page.enableToC) { %>
-                <nav role="navigation" class="toc-container">
-                    <h5>On This Page</h5>
+                <nav role="navigation" class="fr pa2 ma2 w-40-l br1 shadow-2 bg-light-gray dn-s">
+                    <h5 class="pa0 ma0">On This Page</h5>
                     <%- toc(page.content, {list_number: false, max_depth: 3}) %>
                 </nav>
                 <% } %>
