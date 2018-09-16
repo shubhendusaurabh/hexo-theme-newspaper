@@ -18,7 +18,7 @@
             }) %>
             <% if(theme.leaderboard || config.leaderboard || page.leaderboard) { %>
             <% let ads = site.data.leaderboard; let ad = ads[Math.floor(Math.random() * ads.length)]; %>
-            <aside class="leaderboard tc mv3">
+            <aside class="leaderboard tc mv3" id="beforeArticlePromo">
                 <a href="<%- ad.adLink %>" rel="nofollow" target="_blank"><img src="<%- ad.imageLink %>" class="grow" alt="leaderboard promo"></a>
             </aside>
             <% } %>
@@ -41,7 +41,7 @@
                 </article>
 
                 <%- partial('_partial/review', {item: page}) %>
-                <div class="tc promo">
+                <div class="tc promo" id="afterArticlePromo">
                     <%- partial('_partial/widget-ads') %>
                 </div>
                 <!-- Tags Bottom -->
@@ -59,6 +59,7 @@
     </div>
     <%- partial('_partial/widget-share', {item: page, tags: page.tags.map(tag => tag.name.replace(' ', '') )}) %>
     <%- partial(theme.posts_widget) %>
+    <%- partial('_partial/adsense') %>
     <aside class="tc gray">
         <small>We are a participant in the Amazon Services LLC Associates Program, an affiliate advertising
             program designed to provide a means for sites to earn advertising fees by advertising and linking
@@ -66,7 +67,7 @@
     </aside>
 </section>
 <% if (theme.sidebar || page.sidebar) { %>
-<aside class="w-30-l w-100 fl sidebar ph2 tc" style="position: sticky;top: 20px;">
+<aside class="w-30-l w-100 fl sidebar ph2 tc">
 <%- partial('_partial/widget-sidebar-social') %>
 <%- partial('_partial/widget-sidebar-signup') %>
 <%- partial('_partial/widget-sidebar-ads') %>

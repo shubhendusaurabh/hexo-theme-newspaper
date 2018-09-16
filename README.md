@@ -210,3 +210,4 @@ Enjoy :)
 - 02-08-2018 (marketing, carousel, showSubtitle, homePageText)
 - 16-08-2018 adsense
 - 01-09-2018 ads to array
+- 17-08-2018 (theme.adsense.pageAds) & page ads slots
