@@ -61,9 +61,7 @@
     <%- partial(theme.posts_widget) %>
     <%- partial('_partial/adsense') %>
     <aside class="tc gray">
-        <small>We are a participant in the Amazon Services LLC Associates Program, an affiliate advertising
-            program designed to provide a means for sites to earn advertising fees by advertising and linking
-            to Amazon.com, Amazon.co.uk or Amazon.ca.</small>
+        <small><%- theme.affiliateText %></small>
     </aside>
 </section>
 <% if (theme.sidebar || page.sidebar) { %>
