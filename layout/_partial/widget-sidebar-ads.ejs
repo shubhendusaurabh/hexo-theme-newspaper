@@ -1,13 +1,17 @@
-<% let ads = site.data['sidebar-ad']; let ad = ads[Math.floor(Math.random() * ads.length)]; %>
-<ins class="adsbygoogle"
-     style="display:inline-block;width:300px;height:250px"
-     data-ad-client="<%- theme.adsense.id %>"
-     data-ad-slot="5932817641"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<div class="full-banner">
-<a href="<%- ad.adLink %>" class="link" rel="nofollow" target="_blank">
-  <img src="<%- ad.imageLink %>" alt="sidebar promo" class="grow promo">
-</a>
-</div>
+<% if (theme.adsense.enable) { %>
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:300px;height:250px"
+       data-ad-client="<%- theme.adsense.id %>"
+       data-ad-slot="5932817641"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  <% } %>
+  <% let ads = site.data['sidebar-ad'] || []; let ad = ads[Math.floor(Math.random() * ads.length)]; %>
+  <% if (ad) {%>
+  <div class="full-banner">
+  <a href="<%- ad.adLink %>" class="link" rel="nofollow" target="_blank">
+    <img src="<%- ad.imageLink %>" alt="sidebar promo" class="grow promo">
+  </a>
+  </div>
+  <% } %>
