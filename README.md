@@ -212,3 +212,4 @@ Enjoy :)
 - 01-09-2018 ads to array
 - 17-08-2018 (theme.adsense.pageAds) & page ads slots
 - 22-10-2018 theme.affiliateText
+- 05-01-2019 config.cdn.enable, config.cdn.base, config.cdn.local

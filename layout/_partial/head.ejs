@@ -22,8 +22,9 @@
     <% } %>
     <meta property="article:author" content="<%= config.title %>" />
     <% let type = page.title ? 'article' : 'website' %>
+    <% let base = (config.cdn && config.cdn.enable) ? config.cdn.base : config.url %>
     <meta property="og:type" content="<%- type %>" />
-    <% let cover = `${config.url}${page.cover || config.cover}` %>
+    <% let cover = `${base}${page.cover || config.cover}` %>
     <meta property="og:image" content="<%= cover %>" />
     <meta name="twitter:card" content="summary_large_image" />
     <% if(theme.twitter_handle) { %>
@@ -72,7 +73,7 @@
             "sameAs":<%- socials %>,
             "@id":"#organization",
             "name":"<%- config.title %>",
-            "logo":"<%- config.url %><%- theme.logo_image_source %>"
+            "logo":"<%- base %><%- theme.logo_image_source %>"
         }
     </script>
     <% let category = (page.categories && page.categories.data[0]) ? page.categories.data[0] : { name: 'Home', permalink: config.url } %>
@@ -118,12 +119,12 @@
           "name": "<%= config.title %>",
           "logo": {
           "@type": "ImageObject",
-          "url": "<%= config.url %><%= theme.logo_image_source %>",
+          "url": "<%= base %><%= theme.logo_image_source %>",
           "width": <%= theme.logo_width %>,
           "height": <%= theme.logo_height %>
           }
           },
-          "image": { "@type": "ImageObject", "url" : "<%= config.url %><%= page.cover %>", "width": 1200, "height": 600 },
+          "image": { "@type": "ImageObject", "url" : "<%= base %><%= page.cover %>", "width": 1200, "height": 600 },
           "description": "<%= page.description %>"
         }
     </script>
