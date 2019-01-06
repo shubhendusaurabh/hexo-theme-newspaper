@@ -4,3 +4,4 @@
 - popup email
 - convertfox
 - trim image filename
+- remove sharp dependency

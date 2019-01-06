@@ -213,3 +213,4 @@ Enjoy :)
 - 17-08-2018 (theme.adsense.pageAds) & page ads slots
 - 22-10-2018 theme.affiliateText
 - 05-01-2019 config.cdn.enable, config.cdn.base, config.cdn.local
+- 07-01-2019 theme.head, theme.ezoic.enable

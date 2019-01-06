@@ -24,7 +24,7 @@
     <% let type = page.title ? 'article' : 'website' %>
     <% let base = (config.cdn && config.cdn.enable) ? config.cdn.base : config.url %>
     <meta property="og:type" content="<%- type %>" />
-    <% let cover = `${base}${page.cover || config.cover}` %>
+    <% let cover = `${base}${page.cover || theme.banner}` %>
     <meta property="og:image" content="<%= cover %>" />
     <meta name="twitter:card" content="summary_large_image" />
     <% if(theme.twitter_handle) { %>
@@ -166,5 +166,8 @@
         enable_page_level_ads: <%- theme.adsense.pageAds %>
     });
     </script>
+    <% } %>
+    <% if (theme.head) { %>
+    <%- theme.head %>
     <% } %>
 </head>
