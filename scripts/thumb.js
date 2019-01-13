@@ -1,7 +1,7 @@
-const sharp = require('sharp');
 const fs = require('fs');
-
-const config = hexo.config;
+const {
+  spawn
+} = require('child_process');
 
 const sizes = {
   large: 'l',
@@ -14,25 +14,32 @@ hexo.extend.helper.register('thumb', function (path) {
   path = path.trim();
   const temp = path.split('.')
   // check if thumb size image present
+  if (path.indexOf('publit.io') > -1) {
+    let tempname = path.split('/file/')
+    return tempname[0] + '/file/w_265,h_135,q_50/' + tempname[1]
+  }
   const filename = `${temp[0]}-${sizes.small}.${temp[1]}`
   // console.log(filename, path)
   // yes then return path
   fs.access(`${hexo.source_dir}${filename}`, (err) => {
-    if (err) {
+    if (!err) {
       return filename;
     }
     // no then generate new thumb with sharp
     // console.log(`${hexo.source_dir}${filename}`)
-    sharp(`${hexo.source_dir}${path}`)
-      .resize(480, 240)
-      .toFile(`${hexo.source_dir}${filename}`, (err, info) => {
-        if (err) {
-          console.error('Error resizing:', err);
-          return false;
-        }
-        // console.info('thumb generated for path');
-        return filename;
-      })
+    resize = spawn('convert', ['-resize', '480x240', `${hexo.source_dir}${path}`, `${hexo.source_dir}${filename}`])
+    
+    resize.stdout.on('data', data => {
+      console.log(`stdout: ${data}`);
+    });
+
+    resize.stderr.on('data', data => {
+      console.log(`stderr: ${data}`);
+    });
+
+    resize.on('close', code => {
+      console.log(`child process exited with code ${code}`);
+    });
   })
 
   return filename;
