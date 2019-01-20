@@ -202,6 +202,9 @@ Enjoy :)
 - sidebar content on mobile
 - ad rotation & CRO
 
+### fixes
+- # movie - null 
+
 ## Changelog
 
 - 16-07-2018 Sidebar (theme.sidebar, theme.showBio, theme.newsletter)

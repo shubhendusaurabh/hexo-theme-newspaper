@@ -1,4 +1,3 @@
-<% let ads = site.data['sidebar-ad']; let ad = ads[Math.floor(Math.random() * ads.length)]; %>
 <% if (theme.ezoic.enable) { %>
   <div id="ezoic-pub-ad-placeholder-102">
 <% } %>
@@ -11,8 +10,11 @@
 <% if (theme.ezoic.enable) { %>
 </div>
 <% } %>
+<% let ads = site.data['sidebar-ad']; let ad = ads ? ads[Math.floor(Math.random() * ads.length)] : ''; %>
+<% if (ad) { %>
 <div class="full-banner">
 <a href="<%- ad.adLink %>" class="link" rel="nofollow" target="_blank">
   <img src="<%- ad.imageLink %>" alt="sidebar promo" class="grow promo">
 </a>
 </div>
+<% } %>
