@@ -22,12 +22,12 @@ hexo.extend.helper.register('thumb', function (path) {
   // console.log(filename, path)
   // yes then return path
   fs.access(`${hexo.source_dir}${filename}`, (err) => {
-    if (!err) {
+    if (err) {
       return filename;
     }
     // no then generate new thumb with sharp
     // console.log(`${hexo.source_dir}${filename}`)
-    resize = spawn('convert', ['-resize', '480x240', `${hexo.source_dir}${path}`, `${hexo.source_dir}${filename}`])
+    const resize = spawn('convert', ['-resize', '480x240', `${hexo.source_dir}${path}`, `${hexo.source_dir}${filename}`])
     
     resize.stdout.on('data', data => {
       console.log(`stdout: ${data}`);
