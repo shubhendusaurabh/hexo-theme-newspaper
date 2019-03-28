@@ -33,6 +33,11 @@ else window.addEventListener('load', loadDeferredStyles);
 <% for (var i in theme.scripts) { %>
   <%- js(theme.scripts[i]) %>
 <% } %>
+<% if (page.scripts) { %>
+    <% page.scripts.map((script) => { %>
+        <%- js(`js/${script}.js`) %>
+    <% }) %>
+<% } %>
 <% if (theme.gcs) { %>
 <script>
     (function() {
