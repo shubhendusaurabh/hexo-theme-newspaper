@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="<%- theme.favicon %>">
     <link rel="canonical" href="<%- page.permalink || config.url %>">
+    <% if (theme.prefetch && theme.prefetch.length) { theme.prefetch.forEach(function(i) { %> <link rel="preconnect" href="<%= i %>"> <% }) } %>
     <% let description = page.description || strip_html(page.excerpt || page.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 150) || config.description
         if (page.category || page.tag) description = `All articles about ${page.tag || page.category} - ${config.subtitle}` 
     %>

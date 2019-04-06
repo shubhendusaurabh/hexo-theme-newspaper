@@ -218,3 +218,4 @@ Enjoy :)
 - 05-01-2019 config.cdn.enable, config.cdn.base, config.cdn.local
 - 07-01-2019 theme.head, theme.ezoic.enable
 - 29-03-2019 page.noSubtitle, page.scripts
+- 07-04-2019 theme.prefetch
