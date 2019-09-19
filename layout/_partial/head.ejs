@@ -16,9 +16,15 @@
     <meta property="og:site_name" content="<%= config.title %>"/>
     <meta property="og:locale" content="en_US"/>
     <meta property="og:url" content="<%= config.url %><%= config.root %><%= page.path %>" />
-    <% if (page.date) { %>
-        <meta property="article:published_time" content="<%= page.date %>" />
-        <meta property="article:modified_time" content="<%= page.date %>" />
+    <% let pageDate; if (page.date) {
+        const now = moment()
+        const currentYear = now.year()
+        pageDate = moment(page.date)
+        if (now.subtract(1, 'year').isAfter(pageDate)) {
+            pageDate = pageDate.add(1, 'year')
+        } %>
+        <meta property="article:published_time" content="<%= pageDate %>" />
+        <meta property="article:modified_time" content="<%= pageDate %>" />
     <% } %>
     <meta property="article:author" content="<%= config.title %>" />
     <% let type = page.title ? 'article' : 'website' %>
@@ -33,7 +39,8 @@
     <% } %>
     <%
         var title = [];
-        if (page.current > 1) title.push(__('page', page.current));
+        if (page.current > 1) title.push('page ' + page.current);
+        console.log(page.current, title)
         if (page.title) {
             title.push(page.title);
             if (theme.enableSubtitle && (page.source.indexOf('_posts') > -1) && !page.noSubtitle) title.push(theme.subtitle)
@@ -112,8 +119,8 @@
           "author": { "name": "<%= config.title %>" },
           "name": "<%= page.title || config.title %>",
           "headline": "<%= page.title || config.title %>",
-          "datePublished": "<%= page.date %>",
-          "dateModified": "<%= page.date %>",
+          "datePublished": "<%= pageDate %>",
+          "dateModified": "<%= pageDate %>",
           "publisher": {
           "@type": "Organization",
           "name": "<%= config.title %>",
@@ -163,7 +170,6 @@
     <script>
     (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "<%- theme.adsense.id %>",
-        enable_page_level_ads: <%- theme.adsense.pageAds %>
     });
     </script>
     <% } %>
