@@ -101,7 +101,7 @@
                     "position": 2,
                     "item": {
                         "@id": "<%= config.url %><%= config.root %><%= page.path %>",
-                        "name": "<%- page.title %>"
+                        "name": "<%- page.title || page.tag || page.category %>"
                     }
                 } <% } %>
             ]
