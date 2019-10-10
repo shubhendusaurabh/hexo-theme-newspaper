@@ -40,7 +40,6 @@
     <%
         var title = [];
         if (page.current > 1) title.push('page ' + page.current);
-        console.log(page.current, title)
         if (page.title) {
             title.push(page.title);
             if (theme.enableSubtitle && (page.source.indexOf('_posts') > -1) && !page.noSubtitle) title.push(theme.subtitle)
