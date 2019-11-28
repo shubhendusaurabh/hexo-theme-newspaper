@@ -220,3 +220,4 @@ Enjoy :)
 - 29-03-2019 page.noSubtitle, page.scripts
 - 07-04-2019 theme.prefetch
 - 26-07-2019 theme.relatedPostCount
+- 29-11-2019 theme.cdn.domain, theme.cdn.quality

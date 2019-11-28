@@ -174,3 +174,7 @@ relatedPostCount: 3
 affiliteText: 'We are a participant in the Amazon Services LLC Associates Program, an affiliate advertising
             program designed to provide a means for sites to earn advertising fees by advertising and linking
             to Amazon.com, Amazon.co.uk or Amazon.ca.'
+
+cdn:
+  domain: 'https://media.publit.io'
+  quality: 'w_265,h_135,q_50'
