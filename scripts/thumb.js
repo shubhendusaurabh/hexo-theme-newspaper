@@ -14,7 +14,7 @@ hexo.extend.helper.register('thumb', function (path) {
   path = path.trim();
   const temp = path.split('.')
   // check if thumb size image present
-  if (path.indexOf('publit.io') > -1 || path.indexOf(hexo.config.theme_config.cdn.domain) > -1) {
+  if (path.indexOf('publit.io') > -1 || (hexo.config.theme_config.cdn && hexo.config.theme_config.cdn.domain && path.indexOf(hexo.config.theme_config.cdn.domain) > -1)) {
     let tempname = path.split('/file/')
     return tempname[0] + `/file/${hexo.config.theme_config.cdn.quality}/` + tempname[1]
   } 
