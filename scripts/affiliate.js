@@ -50,7 +50,7 @@ if (hexo.config.amazon && hexo.config.amazon.enable) {
       decodeEntities: false
     });
     $('a, area').each((index, element) => {
-      let href = $(element).attr('href');
+      let href = $(element).attr('href').trim();
       const url = URL.parse(href);
       //TODO:: filename as param in reachGoal
       if (url.hostname) {
