@@ -59,7 +59,7 @@
 </section>
 <section class="w-100 pv3 f6 ph3 ph4-ns">
   <div class="mw9 center ph3-ns cf">
-      <% site.categories.findOne({name: page.series[0]}).filter(post => post.path != page.path).posts.forEach(function(post, index){ %>
+      <% site.categories.findOne({name: page.series[0]}).posts.filter(post => post.path != page.path).forEach(function(post, index){ %>
         <article class="fl w-100 w-third-ns pa2">
           <a href="<%- url_for(post.path) %>"><img src="<%- thumb(post.cover) %>" class="w-100 db related-post-image grow" width="265" height="198" alt="<%- post.title %>"></a>
           <div class="pa3">
