@@ -20,8 +20,8 @@
         const now = moment()
         const currentYear = now.year()
         pageDate = moment(page.date)
-        if (now.subtract(1, 'year').isAfter(pageDate)) {
-            pageDate = pageDate.add(1, 'year')
+        if (pageDate.year(currentYear).isAfter(now)) {
+            pageDate.year(currentYear-1)
         } %>
         <meta property="article:published_time" content="<%= pageDate %>" />
         <meta property="article:modified_time" content="<%= pageDate %>" />
