@@ -17,7 +17,8 @@
         </svg>
         <span class="f6 ml3 pr2">Twitter</span>
     </a>
-    <a class="no-underline near-white bg-animate grow inline-flex items-center ma2 tc br2 pa2 pinterest-button" href="http://pinterest.com/pin/create/link/?url=<%= encodeURI(item.permalink) %>&amp;description=<%= encodeURIComponent(item.title) %>&amp;media=<%= config.url + item.cover %>"
+    <% let img = item.cover.includes('http') ? item.cover : config.url + item.cover %>
+    <a class="no-underline near-white bg-animate grow inline-flex items-center ma2 tc br2 pa2 pinterest-button" href="http://pinterest.com/pin/create/link/?url=<%= encodeURI(item.permalink) %>&amp;description=<%= encodeURIComponent(item.title) %>&amp;media=<%= img %>"
         onclick="window.open(this.href, 'pinterest-share', 'width=550,height=235');return false;" title="Share on Pinterest">
         <svg class="dib h2 w2" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
             clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414">
