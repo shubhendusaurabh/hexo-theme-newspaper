@@ -221,3 +221,4 @@ Enjoy :)
 - 07-04-2019 theme.prefetch
 - 26-07-2019 theme.relatedPostCount
 - 29-11-2019 theme.cdn.domain, theme.cdn.quality
+- 07-07-2020 require htmlparser2
