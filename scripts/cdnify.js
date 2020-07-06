@@ -58,7 +58,7 @@ let cdnify = function(str, data) {
         return isLocalPath(origUrl) ? url.resolve(base, origUrl) : origUrl;
     }
     
-    const dom = htmlparser2.parseDOM(str, {decodeEntities: false})
+    const dom = htmlparser2.parseDOM(str, {decodeEntities: true})
     const $ = cheerio.load(dom);
 
     if (options.tags && typeof options.tags === 'object') {
