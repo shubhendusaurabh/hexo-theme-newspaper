@@ -10,7 +10,7 @@
         <div class="fl w-100 left fw3 lh-copy post-content">
             <!-- Banner -->
             <%- partial('_partial/banner.ejs', {
-                mainText: page.title + (theme.enableSubtitle && !page.noSubtitle ? ' ' + (page.subtitle || theme.subtitle) : '') || theme.default_post_title || __('default_post_title'),
+                mainText: page.title + (theme.enableSubtitle && !page.noSubtitle ? ' ' + (page.subtitle || config.subtitle || theme.subtitle) : '') || theme.default_post_title || __('default_post_title'),
                 pubDate: page.date,
                 banner: page.cover || '',
                 secondaryText: '',

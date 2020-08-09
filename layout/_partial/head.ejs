@@ -42,7 +42,7 @@
         if (page.current > 1) title.push('page ' + page.current);
         if (page.title) {
             title.push(page.title);
-            if (theme.enableSubtitle && (page.source.indexOf('_posts') > -1) && !page.noSubtitle) title.push(theme.subtitle)
+            if (theme.enableSubtitle && (page.source.indexOf('_posts') > -1) && !page.noSubtitle) title.push(config.subtitle || theme.subtitle)
         }
         if (page.category) title.push(`${page.category} ${config.description} - ${config.title}`);
         if (page.tag) title.push(`${page.tag} ${config.description} - ${config.title}`);
