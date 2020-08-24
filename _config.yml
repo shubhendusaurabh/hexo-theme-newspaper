@@ -178,3 +178,6 @@ affiliteText: 'We are a participant in the Amazon Services LLC Associates Progra
 cdn:
   domain: 'https://media.publit.io'
   quality: 'w_265,h_135,q_50'
+
+showAuthor: true
+showDate: true

@@ -222,3 +222,4 @@ Enjoy :)
 - 26-07-2019 theme.relatedPostCount
 - 29-11-2019 theme.cdn.domain, theme.cdn.quality
 - 07-07-2020 require htmlparser2
+- 25-10-2020 theme.showDate, theme.showAuthor

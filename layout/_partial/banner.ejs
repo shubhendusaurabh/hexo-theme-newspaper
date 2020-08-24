@@ -3,10 +3,10 @@
     <h1 class="f3 f2-l lh-title fw1 mv0 pb3">
         <%- mainText %>
     </h1>
-    <% if (pubDate) { %>
+    <% if (pubDate && theme.showDate) { %>
         <time class="f5 f4-l dib fw1 date" datetime="<%= pubDate %>"><%= moment(pubDate).format("Do MMMM") %></time>
     <% } %>
-    <% if (author) { %>
+    <% if (author && theme.showAuthor) { %>
     <span class="author ml2"><%= author %></span>
     <% } %>
     <% if (secondaryText) { %>
