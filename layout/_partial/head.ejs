@@ -54,6 +54,9 @@
     %>
     <title><%= title.join(' ') %></title>
     <meta property="og:title" content="<%= title.join(' ') %>"/>
+    <% if (page.current > 1) { %>
+    <meta name="robots" content="noindex" />
+    <% } %>
     <%- partial('google-analytics') %>
     <% let socials = JSON.stringify(Object.values(theme.social_platforms).map((platform) => platform.url)) %>
     <script type='application/ld+json'>
