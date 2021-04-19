@@ -2,7 +2,7 @@
   <a class="db pv4 ph3 ph0-l no-underline black dim" href="<%- url_for(item.path) %>">
     <div class="flex flex-column flex-row-ns">
       <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
-        <img src="<%= thumb(item.cover) %>" width="265" height="198" class="db" alt="<%- item.meta_description || item.description || config.title %>">
+        <img src="<%= thumb(item.cover) %>" width="265" height="198" class="db" alt="<%- item.meta_description || item.description || config.title %>" loading="lazy">
       </div>
       <div class="w-100 w-60-ns pl3-ns">
         <h2 class="f3 fw1 baskerville mt0 lh-title">

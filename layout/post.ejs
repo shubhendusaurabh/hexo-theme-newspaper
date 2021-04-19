@@ -35,7 +35,7 @@
             <% let ads = site.data.leaderboard; let ad = ads[Math.floor(Math.random() * ads.length)]; %>
             <aside class="leaderboard tc mv3" id="beforeArticlePromo">
                 <a href="<%- ad.adLink %>" rel="nofollow" target="_blank"><img src="<%- ad.imageLink %>" class="grow"
-                        alt="leaderboard promo"></a>
+                        alt="leaderboard promo" loading="lazy"></a>
             </aside>
             <% } %>
             <% } %>

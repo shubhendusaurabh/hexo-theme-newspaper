@@ -25,7 +25,7 @@
 <% let ads = site.data.leaderboard; let ad = ads[Math.floor(Math.random() * ads.length)]; %>
 <aside class="leaderboard tc mv3" id="beforeArticlePromo">
   <a href="<%- ad.adLink %>" rel="nofollow" target="_blank"><img src="<%- ad.imageLink %>" class="grow"
-          alt="leaderboard promo"></a>
+          alt="leaderboard promo" loading="lazy"></a>
 </aside>
 <% } %>
 <% } %>
@@ -61,7 +61,7 @@
   <div class="mw9 center ph3-ns cf">
       <% site.categories.findOne({name: page.series[0]}).posts.filter(post => post.path != page.path).forEach(function(post, index){ %>
         <article class="fl w-100 w-third-ns pa2">
-          <a href="<%- url_for(post.path) %>"><img src="<%- thumb(post.cover) %>" class="w-100 db related-post-image grow" width="265" height="198" alt="<%- post.title %>"></a>
+          <a href="<%- url_for(post.path) %>"><img src="<%- thumb(post.cover) %>" class="w-100 db related-post-image grow" width="265" height="198" alt="<%- post.title %>" loading="lazy"></a>
           <div class="pa3">
             <h4>
               <a href="<%- url_for(post.path) %>" class="link dim lh-title">

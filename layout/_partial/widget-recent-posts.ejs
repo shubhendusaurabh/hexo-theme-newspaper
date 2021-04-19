@@ -3,7 +3,7 @@
         <div class="cf ph2-ns">
             <% site.posts.sort('date', -1).limit(3).each(function(post){ %>
                 <article class="fl w-100 w-third-ns pa2">
-                    <a href="<%- url_for(post.path) %>"><img src="<%- thumb(post.cover) %>" class="w-100 db related-post-image grow" width="265" height="198" alt="<%- post.title %>"></a>
+                    <a href="<%- url_for(post.path) %>"><img src="<%- thumb(post.cover) %>" class="w-100 db related-post-image grow" width="265" height="198" alt="<%- post.title %>" loading="lazy"></a>
                     <div class="pa3">
                         <h4><a href="<%- url_for(post.path) %>" class="link dim lh-title">
                             <%= (post.title || theme.default_post_title) %>
